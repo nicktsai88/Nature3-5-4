@@ -131,11 +131,8 @@
         .level-grid-btn:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 6px 0 #bdc3c7; background: #eaf2f8; }
         .level-grid-btn:active:not(:disabled) { transform: translateY(2px); box-shadow: none; }
         .level-grid-btn:disabled { border-color: #bdc3c7; color: #bdc3c7; background: #f0f0f0; cursor: not-allowed; box-shadow: none;}
-        /* 修改點：加大圖示 */
-        .lvl-icon { font-size: 2.5em; margin-bottom: 5px; }
+        .lvl-icon { font-size: 1.8em; margin-bottom: 5px; }
         .lvl-score { font-size: 0.85em; font-weight: bold; color: var(--correct-color); }
-        /* 修改點：新增標題樣式，加大字體 */
-        .lvl-label { font-size: 1.3em; font-weight: bold; }
         
         /* 右側：極速刷題區 */
         .dashboard-speed-zone {
@@ -579,13 +576,11 @@
                     if (score >= 90) icon = '⚛️';
                     else if (score >= 70) icon = '🔬';
                     
-                    // 修改點：引入 class="lvl-label"
-                    btn.innerHTML = `<div class="lvl-icon">${icon}</div><div class="lvl-label">實驗${level}</div>${score !== undefined ? `<div class="lvl-score">${score}分</div>` : ''}`;
+                    btn.innerHTML = `<div class="lvl-icon">${icon}</div><div style="font-weight:bold;">實驗${level}</div>${score !== undefined ? `<div class="lvl-score">${score}分</div>` : ''}`;
                     btn.onclick = () => startStandardQuiz(level);
                 } else {
                     btn.disabled = true;
-                    // 修改點：引入 class="lvl-label"
-                    btn.innerHTML = `<div class="lvl-icon" style="filter:grayscale(1);">🔒</div><div class="lvl-label">實驗${level}</div>`;
+                    btn.innerHTML = `<div class="lvl-icon" style="filter:grayscale(1);">🔒</div><div>實驗${level}</div>`;
                 }
                 grid.appendChild(btn);
             });
